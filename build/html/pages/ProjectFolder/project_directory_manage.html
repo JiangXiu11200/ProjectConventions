@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Directory Manage &mdash; ProjectConventions 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PEP 8 - Style Guide for Python Code" href="../CodingConventions/python_coding_conventions.html" />
+    <link rel="prev" title="ProjectConventions" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ProjectConventions
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Folder:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project Directory Manage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coding Conventions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CodingConventions/python_coding_conventions.html">PEP 8 - Style Guide for Python Code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Naming:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Naming/python_naming.html">Python Naming</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ProjectConventions</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Project Directory Manage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/ProjectFolder/project_directory_manage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="project-directory-manage">
+<h1>Project Directory Manage<a class="headerlink" href="#project-directory-manage" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>前言<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>本文內容為資料夾管理概念的簡述，會教導你如何整理整個專案的資料，藉由標準化的整理模式，無論是自己再找資料，或是多人協作、交接等等，都可以使我們提升效率。</p>
+<p>所有專案都必須依照本文所提出的管理方法進行資料夾分類，但依照專案規模，你可以自行再延伸出其他目錄來優化你的管理方式。</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>良好的資料整理習慣，本就是個軟體工程師因具備的技能。</p>
+</div>
+</section>
+<section id="id2">
+<h2>建構專案目錄下的子資料夾<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="bat">
+<h3>1. 利用 bat 檔或手動建立目錄下的子資料夾<a class="headerlink" href="#bat" title="Link to this heading"></a></h3>
+<p>建立一個 ProjectFolderInitial.bat (for Windows) 複製下列內容或 <a class="reference external" href="http://gslab.edu.tw:5000/sharing/g4wek9lyv">download bat file in gslab nas</a></p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">md</span> G01-SourceCode
+<span class="k">md</span> N01-API
+<span class="k">md</span> N02-Architecture
+<span class="k">md</span> N03-DevelopmentLog
+<span class="k">md</span> N04-TestReport
+<span class="k">md</span> N05-Release
+<span class="k">md</span> N06-Tutorial
+<span class="k">type</span> NUL <span class="p">&gt;</span> N01-API\README.md
+<span class="k">type</span> NUL <span class="p">&gt;</span> N02-Architecture\README.md
+<span class="k">type</span> NUL <span class="p">&gt;</span> N03-DevelopmentLog\README.md
+<span class="k">type</span> NUL <span class="p">&gt;</span> N04-TestReport\README.md
+<span class="k">type</span> NUL <span class="p">&gt;</span> N05-Release\README.md
+<span class="k">type</span> NUL <span class="p">&gt;</span> N06-Tutorial\README.md
+</pre></div>
+</div>
+<p>建立完成後的專案目錄</p>
+<img alt="../../_images/project_directory.png" src="../../_images/project_directory.png" />
+</section>
+<section id="id3">
+<h3>2. 子目錄命名規則<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>專案資料夾的 G 或 N 開頭是有他的含意的。</p></li>
+<li><p>G 開頭為 Git，需要使用 Git 控管。</p></li>
+<li><p>N 開頭為 NAS 資料夾，需要將檔案上傳至 NAS。</p></li>
+<li><p>每個目錄請給予編號與順序，用以排序與提升溝通的效率。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>3. 子目錄說明<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>G01-SourceCode: 你的 Git 程式碼。</p></li>
+<li><p>N01-API: API 相關文件。</p></li>
+<li><p>N02-Architecture: 架構相關文件。</p></li>
+<li><p>N03-DevelopmentLog: 開發相關文件，ex: 每週進度報告。</p></li>
+<li><p>N04-TestReport: 測試相關文件。</p></li>
+<li><p>N05-Release: 所發佈的版本檔案，ex: docker image。</p></li>
+<li><p>N06-Tutorial: 教學相關文件。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>4. 延伸<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>每個子目錄下你可以再建立資料夾去分類不同檔案，好比說 N02-Architecture，你可能包含了整個系統的架構圖、部份系統的架構圖、硬體架構文件、MSC/UML 圖、FSM…等，各式各樣不同的架構文件，你就可以在 N02 下再建立目錄去分類。</p></li>
+<li><p>依照專案需求，自行新增 N07-…、N08-…。</p></li>
+<li><p>記住，目錄的用意是要讓你有良好的檔案分類，良好的檔案分類可以讓你的開發與溝通更有效率、交接更順暢、維護更輕鬆。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../index.html" class="btn btn-neutral float-left" title="ProjectConventions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../CodingConventions/python_coding_conventions.html" class="btn btn-neutral float-right" title="PEP 8 - Style Guide for Python Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
