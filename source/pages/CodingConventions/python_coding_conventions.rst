@@ -13,8 +13,7 @@ Lab大多的專案都是以Python進行開發，尤其大多剛進來中心的�
 
 Python官方有一個編碼規範的風格指南: `PEP 8` (Python Enhancement Proposal8)，上面有許多關於Python的用法建議。
 
-讓我們開始吧!
---------------
+**讓我們開始吧!**
 
 推薦工具
 ----------
@@ -60,8 +59,8 @@ Basic
     # 3. y 與公共 API 中常用的參數名稱衝突（例如 features）
     # 4. y 的名稱太長或太通用，不方便使用。
 
-import錯誤範例
-~~~~~~~~~~~~~~~~
+**import錯誤範例**
+
 .. code-block:: python
 
     import a, b

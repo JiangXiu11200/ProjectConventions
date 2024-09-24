@@ -44,17 +44,41 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Project Folder:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Project Folder</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../ProjectFolder/project_directory_manage.html">Project Directory Manage</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Coding Conventions:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Coding Conventions</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PEP 8 - Style Guide for Python Code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PEP 8 - Style Guide for Python Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">前言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">推薦工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pep8">PEP8程式碼編排規則</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic">Basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import">1. import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comments">2. 註解 (Comments):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-lay-out">3. 縮排 (Code Lay-out)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">4. 多行括號</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">5. 斷行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">6. 斷行時的操作符號</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">7. 表達式、語句中的空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">內容尚在建置中…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">參考資料</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Naming:</span></p>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Naming</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Naming/python_naming.html">Python Naming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gitlab</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_gitlab_project.html">Create Gitlab Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/sourcetree.html">SourceTree</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Github</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Github/gitflow.html">Git Flow</a></li>
 </ul>
 
         </div>
@@ -89,12 +113,10 @@
 <p>Lab大多的專案都是以Python進行開發，尤其大多剛進來中心的同學都是先學Python，無論是第一組開發影像處理演算法或是第二組開發Web server、Socket等等。而在撰寫程式時，不知道你們有沒有發現一些怪怪的地方，像是: 程式碼排版、縮排、參數命名、註解寫法..等等，這些平常我們在’寫作’的風格，其實是有一系列規範的，其目的是在於使開發者可以寫出一系列可讀性高且風格一致的程式。</p>
 <p>編排這些程式碼如同寫作，寫作需要了解讀句規則，寫程式也該清楚程式書寫風格，才得以在好的基礎下精進自我。</p>
 <p>Python官方有一個編碼規範的風格指南: <cite>PEP 8</cite> (Python Enhancement Proposal8)，上面有許多關於Python的用法建議。</p>
+<p><strong>讓我們開始吧!</strong></p>
 </section>
 <section id="id2">
-<h2>讓我們開始吧!<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-</section>
-<section id="id3">
-<h2>推薦工具<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<h2>推薦工具<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>你可以直接安裝排版工具: <cite>Black Formatter</cite> 這是一款強大的Python自動排版工具，它可以幫助你的程式碼風格統一，並且更符合PEP8的coding style。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -134,13 +156,11 @@
 <span class="c1"># 4. y 的名稱太長或太通用，不方便使用。</span>
 </pre></div>
 </div>
-<section id="id4">
-<h3>import錯誤範例<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p><strong>import錯誤範例</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">a</span><span class="o">,</span> <span class="nn">b</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 </pre></div>
 </div>
-</section>
 </section>
 <section id="comments">
 <h2>2. 註解 (Comments):<a class="headerlink" href="#comments" title="Link to this heading"></a></h2>
@@ -202,8 +222,8 @@
 </div>
 <p>次行對齊不能與其他程式碼在同一行，須再加一層縮排。</p>
 </section>
-<section id="id5">
-<h2>4. 多行括號<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<section id="id3">
+<h2>4. 多行括號<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>括號結束符與最後行的首字符對齊</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
@@ -219,8 +239,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id6">
-<h2>5. 斷行<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id4">
+<h2>5. 斷行<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>判斷式或函式過長，使用反斜線 <code class="docutils literal notranslate"><span class="pre">\</span></code> 斷行</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/some/file/you/want/to/read&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_1</span><span class="p">,</span> \
     <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/some/file/being/written&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_2</span><span class="p">:</span>
@@ -228,8 +248,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h2>6. 斷行時的操作符號<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>6. 斷行時的操作符號<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>操作符號對齊</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">=</span> <span class="p">(</span><span class="n">gross_wages</span>
             <span class="o">+</span> <span class="n">taxable_interest</span>
@@ -239,8 +259,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id8">
-<h2>7. 表達式、語句中的空格<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>7. 表達式、語句中的空格<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>()、[]、{}等括號內不要有多餘空格</p></li>
 <li><p>逗號、分號等符號前不用空格</p></li>
@@ -264,11 +284,11 @@
 </pre></div>
 </div>
 </section>
-<section id="id9">
-<h2>內容尚在建置中…<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="id7">
+<h2>內容尚在建置中…<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 </section>
-<section id="id10">
-<h2>參考資料<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id8">
+<h2>參考資料<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://adora-xu.com/2024/03/01/python-pep8-style-guide-for-python-code/">Python: PEP 8 程式碼風格指南</a></p></li>
 <li><p><a class="reference external" href="https://cflin.com/wordpress/603/pep8-python%E7%B7%A8%E7%A2%BC%E8%A6%8F%E7%AF%84%E6%89%8B%E5%86%8A/">PEP8 Python 編碼規範手冊</a></p></li>

@@ -3,30 +3,66 @@
 ..    You can adapt this file completely to your liking, but it should at least
 ..    contain the root `toctree` directive.
 
-ProjectConventions
+Project Conventions
 ================================
 
 本文件為一些專案開發規範的筆記，其中包括了Project Folder、Coding style、Naming、Git flow、Git commit message、Creating issue、Version control、UI/UX FSM、Unit test、Integration test…等等，內容會陸續修正與新增。
 
 建立良好的開發規範帶來諸多好處，包括一致性、可讀性、易於維護及擴充，讓專案管理和擴展更加便捷。
 
-Contents
-=============
+.. Contents
+.. =============
+
+**Project Folder**
+   * :doc:`pages/ProjectFolder/project_directory_manage`
+**Coding Conventions**
+   * :doc:`pages/CodingConventions/python_coding_conventions`
+**Naming**
+   * :doc:`pages/Naming/python_naming`
+
+**Github**
+   **基礎**
+
+   * :doc:`pages/Gitlab/create_gitlab_project`
+   
+   * :doc:`pages/Gitlab/sourcetree`
+
+   **Github**
+
+   * :doc:`pages/Github/gitflow`
 
 .. toctree::
-   :titlesonly:
-   :caption: Project Folder:
+   :caption: Project Folder
+   :maxdepth: 1
+   :hidden:
 
    pages/ProjectFolder/project_directory_manage
 
 .. toctree::
-   :titlesonly:
-   :caption: Coding Conventions:
+   :caption: Coding Conventions
+   :maxdepth: 1
+   :hidden:
 
    pages/CodingConventions/python_coding_conventions
 
 .. toctree::
-   :titlesonly:
-   :caption: Naming:
+   :caption: Naming
+   :maxdepth: 1
+   :hidden:
 
    pages/Naming/python_naming
+
+.. toctree::
+   :caption: Gitlab
+   :maxdepth: 1
+   :hidden:
+
+   pages/Gitlab/create_gitlab_project
+   pages/Gitlab/sourcetree
+
+.. toctree::
+   :caption: Github
+   :maxdepth: 1
+   :hidden:
+
+   pages/Github/gitflow
