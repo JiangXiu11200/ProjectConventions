@@ -30,6 +30,8 @@ Project Conventions
    **Github**
 
    * :doc:`pages/Github/gitflow`
+   * :doc:`pages/Github/deleted_by_mistake`
+   * :doc:`pages/Github/commit_message`
 
 .. toctree::
    :caption: Project Folder
@@ -66,3 +68,5 @@ Project Conventions
    :hidden:
 
    pages/Github/gitflow
+   pages/Github/deleted_by_mistake
+   pages/Github/commit_message
