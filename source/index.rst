@@ -20,12 +20,13 @@ Project Conventions
 **Naming**
    * :doc:`pages/Naming/python_naming`
 
-**Github**
+**Git**
+
    **基礎**
 
    * :doc:`pages/Gitlab/create_gitlab_project`
-   
    * :doc:`pages/Gitlab/sourcetree`
+   * :doc:`pages/Gitlab/creating_issue`
 
    **Github**
 
@@ -61,6 +62,7 @@ Project Conventions
 
    pages/Gitlab/create_gitlab_project
    pages/Gitlab/sourcetree
+   pages/Gitlab/creating_issue
 
 .. toctree::
    :caption: Github
