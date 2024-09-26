@@ -3,10 +3,10 @@ Python Naming
 ==========================================
 
 參數命名規則
-=====================
+----------------
 
 1. Packages
-------------
+~~~~~~~~~~~~~
 * 字母全部小寫。
 * 多個單字以底線（"_"）分隔。
 * 最好堅持以一個單字為命名。
@@ -19,7 +19,7 @@ Python Naming
     from rest_framework import status
 
 2. Modules
------------
+~~~~~~~~~~~~~
 * 字母全部小寫。
 * 多個單字以底線（"_"）分隔。
 * 最好堅持以一個單字為命名。
@@ -31,7 +31,7 @@ Python Naming
     from oam_system import oam_system_config
 
 3. Classes
------------
+~~~~~~~~~~~~~
 * 每個字母開頭均大寫，如 ``ActivityLogMiddleware``。
 * 異常類別以 "Error" 結尾。
 
@@ -45,7 +45,7 @@ Python Naming
         pass
 
 4. Global (module-level) Variables
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 字母全部小寫。
 * 多個單字以底線（"_"）分隔。
 
@@ -59,7 +59,7 @@ Python Naming
         ...
 
 5. Instance Variables
----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 字母全部小寫。
 * 多個單字以底線（"_"）分隔。
 * 非公共（Non-public）變數以底線（"_"）開頭。
@@ -75,7 +75,7 @@ Python Naming
             self.__variable_with_name_mangling = 3
 
 6. Methods
------------
+~~~~~~~~~~~~~
 * 字母全部小寫。
 * 多個單字以底線（"_"）分隔。
 * 非公共（Non-public）方法則以底線（"_"）開頭。
@@ -95,7 +95,7 @@ Python Naming
             pass
 
 7. Method Arguments
---------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 * Instance methods 以 ``self`` 開頭。
 * Class methods 以 ``cls`` 開頭。
 
@@ -117,7 +117,7 @@ Python Naming
             ...
 
 8. Functions
--------------
+~~~~~~~~~~~~~~
 * 字母全部小寫。
 * 多個單字以底線（"_"）分隔。
 
@@ -131,7 +131,7 @@ Python Naming
         ...
 
 9. Constants
--------------
+~~~~~~~~~~~~~~~
 * 字母全部大寫。
 * 多個單字以底線（"_"）分隔。
 
@@ -144,7 +144,7 @@ Python Naming
     MAX_RETRIES = 5
 
 10. Interface
---------------
+~~~~~~~~~~~~~~~~
 * 命名名稱以 "I" 開頭。
 
 .. code-block:: python
@@ -154,7 +154,7 @@ Python Naming
         pass
 
 參考資料
-================
+----------
 * `Python Naming Conventions <https://visualgit.readthedocs.io/en/latest/pages/naming_convention.html>`_
 * `Python Coding Style <https://medium.com/@austinchang5116/python-coding-style-e2d8a3704e20>`_
 * `Python naming conventions for interfaces and abstract classes? <https://stackoverflow.com/questions/10723839/python-naming-conventions-for-interfaces-and-abstract-classes>`_

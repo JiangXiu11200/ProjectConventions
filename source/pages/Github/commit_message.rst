@@ -3,7 +3,7 @@ Commit Message
 ===============================
 
 Commit Message
-================
+--------------------
 
 為什麼Git Commit也要有規範?! Commit message重要嗎?
 -------------------------------------------------------
@@ -28,6 +28,7 @@ Commit message的規範 - 約定式提交
 約定式提交是一種輕量化的提交規則，利用一些簡單條件來建立明確的提交歷史。
 
 1. 提交結構與說明
+~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -57,6 +58,7 @@ Commit message的規範 - 約定式提交
     * 些重大改變或是其他標記，我們常用的是標記Issue訊息。
 
 2. 提交範例
+~~~~~~~~~~~~
 
 * 範例1. 修復Bug:
 
@@ -69,7 +71,7 @@ Commit message的規範 - 約定式提交
 
 由此可知，這支Commit修復了'Core'這個Module的一個Bug，修復了因為k8s導致Web數據無法清除的問題，並且這問題被記錄於專案的issue#13。
 
-`延伸閱讀: Creating issue <https://.....com/pages/Github/creating_issue>`_
+`延伸閱讀: Creating issue <../Gitlab/creating_issue>`_
 
 * 範例2. 新增功能:
 

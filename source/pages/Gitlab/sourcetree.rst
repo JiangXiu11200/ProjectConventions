@@ -15,9 +15,9 @@ Clone你的Gitlab專案
 ====================
 
 1. 複製專案URL
-~~~~~~~~~~~~~~~~
+----------------
 .. image:: /assets/Gitlab/sourcetree-1.jpg
 
 2. Clone你的專案
-~~~~~~~~~~~~~~~~
+----------------
 .. image:: /assets/Gitlab/sourcetree-2.jpg
