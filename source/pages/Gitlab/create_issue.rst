@@ -1,8 +1,8 @@
 ===============================
-Gitlab - Creating issue
+GitLab - Create issue
 ===============================
 
-GitLab - Creating issue
+GitLab - Create issue
 ---------------------------
 
 Issue控管? 老師說要控管Issue，我該如何下手?
