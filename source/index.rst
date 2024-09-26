@@ -28,6 +28,7 @@ Project Conventions
    * :doc:`pages/Gitlab/sourcetree`
    * :doc:`pages/Gitlab/creating_issue`
    * :doc:`pages/Gitlab/version_control`
+   * :doc:`pages/Gitlab/create_git_ignore`
 
    **Github**
 
@@ -65,6 +66,7 @@ Project Conventions
    pages/Gitlab/sourcetree
    pages/Gitlab/creating_issue
    pages/Gitlab/version_control
+   pages/Gitlab/create_git_ignore
 
 .. toctree::
    :caption: Github
