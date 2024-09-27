@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uBuntu NTP Server安裝與校時 &mdash; ProjectConventions 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="uBuntu 掛載smb共享資料夾" href="ubuntu_samba.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ProjectConventions
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Folder</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectFolder/project_directory_manage.html">Project Directory Manage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coding Conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CodingConventions/python_coding_conventions.html">PEP 8 - Style Guide for Python Code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Naming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Naming/python_naming.html">Python Naming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gitlab</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_gitlab_project.html">Create Gitlab Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/sourcetree.html">SourceTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_issue.html">GitLab - Create issue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/version_control.html">GitLab - Version control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_git_ignore.html">GitLab - Create git ignore</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Github</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Github/gitflow.html">Git Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Github/deleted_by_mistake.html">Git Flow - 延伸操作1. 誤刪分支</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Github/commit_message.html">Commit Message</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Design/uiux_fsm.html">UI/UX FSM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ubuntu Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ubuntu_samba.html">uBuntu 掛載smb共享資料夾</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">uBuntu NTP Server安裝與校時</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu-ntp-service">Ubuntu 安裝ntp.service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ntp-service">1. 安裝NTP Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2. 確認安裝</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ntp">3. 設定NTP校正伺服器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4. 重新啟動ntp.service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5. 查看系統時間</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">手動NTP校正時間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ntp-server">架設自己的NTP Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server">1. Server端設定流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client">2. Client端設定流程:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">時區設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">問題紀錄：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">參考資料</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ProjectConventions</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">uBuntu NTP Server安裝與校時</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/Ubuntu/ubuntu_ntp_server.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ubuntu-ntp-server">
+<h1>uBuntu NTP Server安裝與校時<a class="headerlink" href="#ubuntu-ntp-server" title="Link to this heading"></a></h1>
+<section id="ubuntu-ntp-service">
+<h2>Ubuntu 安裝ntp.service<a class="headerlink" href="#ubuntu-ntp-service" title="Link to this heading"></a></h2>
+<section id="ntp-service">
+<h3>1. 安裝NTP Service<a class="headerlink" href="#ntp-service" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ntp
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>2. 確認安裝<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sntp<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+<section id="ntp">
+<h3>3. 設定NTP校正伺服器<a class="headerlink" href="#ntp" title="Link to this heading"></a></h3>
+<p>進入ntp.conf檔</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ntp.conf
+</pre></div>
+</div>
+<p>修改第21~24行，修改為: <code class="docutils literal notranslate"><span class="pre">`tw.pool.ntp.org</span> <span class="pre">iburst`</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help</span>
+
+driftfile<span class="w"> </span>/var/lib/ntp/ntp.drift
+
+<span class="c1"># Leap seconds definition provided by tzdata</span>
+leapfile<span class="w"> </span>/usr/share/zoneinfo/leap-seconds.list
+
+<span class="c1"># Enable this if you want statistics to be logged.</span>
+<span class="c1">#statsdir /var/log/ntpstats/</span>
+
+statistics<span class="w"> </span>loopstats<span class="w"> </span>peerstats<span class="w"> </span>clockstats
+filegen<span class="w"> </span>loopstats<span class="w"> </span>file<span class="w"> </span>loopstats<span class="w"> </span><span class="nb">type</span><span class="w"> </span>day<span class="w"> </span><span class="nb">enable</span>
+filegen<span class="w"> </span>peerstats<span class="w"> </span>file<span class="w"> </span>peerstats<span class="w"> </span><span class="nb">type</span><span class="w"> </span>day<span class="w"> </span><span class="nb">enable</span>
+filegen<span class="w"> </span>clockstats<span class="w"> </span>file<span class="w"> </span>clockstats<span class="w"> </span><span class="nb">type</span><span class="w"> </span>day<span class="w"> </span><span class="nb">enable</span>
+
+<span class="c1"># Specify one or more NTP servers.</span>
+
+<span class="c1"># Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board</span>
+<span class="c1"># on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for</span>
+<span class="c1"># more information.</span>
+pool<span class="w"> </span><span class="m">0</span>.tw.pool.ntp.org<span class="w"> </span>iburst
+pool<span class="w"> </span><span class="m">1</span>.tw.pool.ntp.org<span class="w"> </span>iburst
+pool<span class="w"> </span><span class="m">2</span>.tw.pool.ntp.org<span class="w"> </span>iburst
+pool<span class="w"> </span><span class="m">3</span>.tw.pool.ntp.org<span class="w"> </span>iburst
+
+<span class="c1"># Use Ubuntu&#39;s ntp server as a fallback.</span>
+pool<span class="w"> </span>ntp.ubuntu.com
+
+<span class="c1"># Access control configuration; see /usr/share/doc/ntp-doc/html/accopt.html for</span>
+<span class="c1"># details.  The web page &lt;http://support.ntp.org/bin/view/Support/AccessRestrictions&gt;</span>
+<span class="c1"># might also be helpful.</span>
+<span class="c1">#</span>
+<span class="c1"># Note that &quot;restrict&quot; applies to both servers and clients, so a configuration</span>
+<span class="c1"># that might be intended to block requests from certain clients could also end</span>
+<span class="c1"># up blocking replies from your own upstream servers.</span>
+
+<span class="c1"># By default, exchange time with everybody, but don&#39;t allow configuration.</span>
+restrict<span class="w"> </span>-4<span class="w"> </span>default<span class="w"> </span>kod<span class="w"> </span>notrap<span class="w"> </span>nomodify<span class="w"> </span>nopeer<span class="w"> </span>noquery<span class="w"> </span>limited
+restrict<span class="w"> </span>-6<span class="w"> </span>default<span class="w"> </span>kod<span class="w"> </span>notrap<span class="w"> </span>nomodify<span class="w"> </span>nopeer<span class="w"> </span>noquery<span class="w"> </span>limited
+
+<span class="c1"># Local users may interrogate the ntp server more closely.</span>
+restrict<span class="w"> </span><span class="m">127</span>.0.0.1
+restrict<span class="w"> </span>::1
+
+<span class="c1"># Needed for adding pool entries</span>
+restrict<span class="w"> </span><span class="nb">source</span><span class="w"> </span>notrap<span class="w"> </span>nomodify<span class="w"> </span>noquery
+
+<span class="c1"># Clients from this (example!) subnet have unlimited access, but only if</span>
+<span class="c1"># cryptographically authenticated.</span>
+<span class="c1">#restrict 192.168.123.0 mask 255.255.255.0 notrust</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>4. 重新啟動ntp.service<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ntp.service
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>5. 查看系統時間<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>date<span class="w"> </span>-R
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>手動NTP校正時間<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>安裝ntpdate</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ntpdate
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>手動校正時間</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ntpdate<span class="w"> </span>time.stdtime.gov.tw
+</pre></div>
+</div>
+</section>
+<section id="ntp-server">
+<h2>架設自己的NTP Server<a class="headerlink" href="#ntp-server" title="Link to this heading"></a></h2>
+<section id="server">
+<h3>1. Server端設定流程<a class="headerlink" href="#server" title="Link to this heading"></a></h3>
+<p>進入設定檔</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ntp.conf
+</pre></div>
+</div>
+<p>找到 restrict 行，並進行修改。
+這個配置允許 192.168.0.0/24 網段的所有設備可以訪問這個 NTP 伺服器。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>restrict<span class="w"> </span><span class="m">192</span>.168.0.0<span class="w"> </span>mask<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>nomodify<span class="w"> </span>notrap
+</pre></div>
+</div>
+<p>接著，重啟 NTP 服務</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ntp.service
+</pre></div>
+</div>
+</section>
+<section id="client">
+<h3>2. Client端設定流程:<a class="headerlink" href="#client" title="Link to this heading"></a></h3>
+<p>進入設定檔</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ntp.conf
+</pre></div>
+</div>
+<p>找到 server 行，刪除或註釋掉它們（在行首加 #），然後添加一行以將 Da 的 IP 地址設為 NTP 伺服器，例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server<span class="w"> </span><span class="m">192</span>.168.0.66<span class="w"> </span>iburst
+</pre></div>
+</div>
+<p>接著，重啟 NTP 服務</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ntp.service
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>時區設定<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>查詢當前時間</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>timedatectl
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>設定時區</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>Asia/Taipei
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>問題紀錄：<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>設定後，NTP Client端出現以下訊息：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>receive:<span class="w"> </span>KoD<span class="w"> </span>packet<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.0.100<span class="w"> </span>has<span class="w"> </span>inconsistent<span class="w"> </span>xmt/org/rec<span class="w"> </span>timestamps.<span class="w">  </span>Ignoring
+</pre></div>
+</div>
+<img alt="../../_images/ntp_server-1.jpg" src="../../_images/ntp_server-1.jpg" />
+<img alt="../../_images/ntp_server-2.jpg" src="../../_images/ntp_server-2.jpg" />
+</section>
+<section id="id7">
+<h2>參考資料<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ntppool.org/join/configuration.html">服務器加入NTP池的設置建議</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ubuntu_samba.html" class="btn btn-neutral float-left" title="uBuntu 掛載smb共享資料夾" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

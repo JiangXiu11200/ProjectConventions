@@ -40,6 +40,17 @@ Project Conventions
 
    * :doc:`pages/Design/uiux_fsm`
 
+
+Tool Notes
+================================
+
+一些系統工具、ubuntu工具、網站工具的筆記！
+
+**Ubuntu Tools**
+
+   * :doc:`pages/Ubuntu/ubuntu_samba`
+   * :doc:`pages/Ubuntu/ubuntu_ntp_server`
+
 .. toctree::
    :caption: Project Folder
    :maxdepth: 1
@@ -87,3 +98,12 @@ Project Conventions
    :hidden:
 
    pages/Design/uiux_fsm
+
+
+.. toctree::
+   :caption: Ubuntu Tools
+   :maxdepth: 1
+   :hidden:
+
+   pages/Ubuntu/ubuntu_samba
+   pages/Ubuntu/ubuntu_ntp_server

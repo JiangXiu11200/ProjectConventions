@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uBuntu 掛載smb共享資料夾 &mdash; ProjectConventions 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="UI/UX FSM" href="../Design/uiux_fsm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ProjectConventions
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Folder</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectFolder/project_directory_manage.html">Project Directory Manage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coding Conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CodingConventions/python_coding_conventions.html">PEP 8 - Style Guide for Python Code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Naming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Naming/python_naming.html">Python Naming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gitlab</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_gitlab_project.html">Create Gitlab Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/sourcetree.html">SourceTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_issue.html">GitLab - Create issue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/version_control.html">GitLab - Version control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gitlab/create_git_ignore.html">GitLab - Create git ignore</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Github</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Github/gitflow.html">Git Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Github/deleted_by_mistake.html">Git Flow - 延伸操作1. 誤刪分支</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Github/commit_message.html">Commit Message</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Design/uiux_fsm.html">UI/UX FSM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ubuntu Tools</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">uBuntu 掛載smb共享資料夾</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.安裝所需工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smbclient">2.使用 smbclient 檢查可用的共享</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smb">3.掛載 SMB 共享</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smb-server">4. 設定smb server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smb-directory">5. 自動掛載smb directory</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ProjectConventions</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">uBuntu 掛載smb共享資料夾</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/Ubuntu/ubuntu_samba.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ubuntu-smb">
+<h1>uBuntu 掛載smb共享資料夾<a class="headerlink" href="#ubuntu-smb" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>1.安裝所需工具<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>smbclient
+</pre></div>
+</div>
+</section>
+<section id="smbclient">
+<h2>2.使用 smbclient 檢查可用的共享<a class="headerlink" href="#smbclient" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smbclient<span class="w"> </span>-L<span class="w"> </span>//server<span class="w"> </span>-U<span class="w"> </span>username
+</pre></div>
+</div>
+</section>
+<section id="smb">
+<h2>3.掛載 SMB 共享<a class="headerlink" href="#smb" title="Link to this heading"></a></h2>
+<p>這裡的server和sharename 分別是你的SMB伺服器的地址和共享名稱。
+username和password則是你的SMB帳戶的使用者名稱和密碼。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/myshare
+sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/sharename<span class="w"> </span>/mnt/myshare<span class="w"> </span>-o<span class="w"> </span><span class="nv">username</span><span class="o">=</span>username,password<span class="o">=</span>password
+</pre></div>
+</div>
+</section>
+<section id="smb-server">
+<h2>4. 設定smb server<a class="headerlink" href="#smb-server" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>進入smb.conf</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/samba/smb.conf
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>新增欄位</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>SMB_NAME<span class="o">]</span>
+<span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SMB_HOST_PATH
+valid<span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>USER_NAME
+<span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>將系統用戶新增為 Samba 用戶，並設定密碼：</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>smbpasswd<span class="w"> </span>-a<span class="w"> </span>user
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>restart smb.service</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd.service
+</pre></div>
+</div>
+</section>
+<section id="smb-directory">
+<h2>5. 自動掛載smb directory<a class="headerlink" href="#smb-directory" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>進入/etc/fstab</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/fstab
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>設定掛載目錄</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//SMB_SERVER_IP/DIRECTORY_NAME<span class="w"> </span>/HOST_MOUNT_DIRECTORY<span class="w"> </span>cifs<span class="w"> </span><span class="nv">username</span><span class="o">=</span>USER_NAME,password<span class="o">=</span>PASSWORD,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>//SMB_SERVER_IP/DIRECTORY_NAME：這是你要掛載的遠端 CIFS 檔案系統。
+/HOST_MOUNT_DIRECTORY：這是你本地的掛載點。
+cifs：檔案系統類型。
+sername=USER_NAME,password=PASSWORD：掛載所需的使用者名稱和密碼。
+uid=1000,gid=1000：設定檔案的擁有者和群組（可根據實際使用者 ID 和群組 ID 進行調整）。
+0 0：
+* 第一個 0 (dump 選項)：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>如果值為 0，則表示不需要備份檔案系統。</p></li>
+<li><p>如果值為 1，則表示需要備份檔案系統。一般來說，大多數現代 Linux 系統都不使用 dump，因此通常設定為 0。</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>第二個 0 (fsck 選項)：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>如果值為 0，則表示在系統啟動時不需要檢查這個檔案系統。</p></li>
+<li><p>如果值為 1，則表示需要在系統啟動時檢查這個檔案系統，且檢查的優先順序最高（通常用於根檔案系統）。</p></li>
+<li><p>如果值為 2，則表示需要在系統啟動時檢查這個檔案系統，但優先順序較低（通常用於非根檔案系統）。</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Design/uiux_fsm.html" class="btn btn-neutral float-left" title="UI/UX FSM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
