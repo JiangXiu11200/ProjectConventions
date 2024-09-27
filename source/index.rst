@@ -36,6 +36,10 @@ Project Conventions
    * :doc:`pages/Github/deleted_by_mistake`
    * :doc:`pages/Github/commit_message`
 
+**Design**
+
+   * :doc:`pages/Design/uiux_fsm`
+
 .. toctree::
    :caption: Project Folder
    :maxdepth: 1
@@ -76,3 +80,10 @@ Project Conventions
    pages/Github/gitflow
    pages/Github/deleted_by_mistake
    pages/Github/commit_message
+
+.. toctree::
+   :caption: Design
+   :maxdepth: 1
+   :hidden:
+
+   pages/Design/uiux_fsm
