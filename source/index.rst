@@ -50,6 +50,7 @@ Tool Notes
 
    * :doc:`pages/Ubuntu/ubuntu_samba`
    * :doc:`pages/Ubuntu/ubuntu_ntp_server`
+   * :doc:`pages/Ubuntu/ubuntu_create_service`
 
 .. toctree::
    :caption: Project Folder
@@ -107,3 +108,4 @@ Tool Notes
 
    pages/Ubuntu/ubuntu_samba
    pages/Ubuntu/ubuntu_ntp_server
+   pages/Ubuntu/ubuntu_create_service
