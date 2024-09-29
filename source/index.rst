@@ -3,109 +3,30 @@
 ..    You can adapt this file completely to your liking, but it should at least
 ..    contain the root `toctree` directive.
 
-Project Conventions
+Project conventions and Notes
 ================================
 
-本文件為一些專案開發規範的筆記，其中包括了Project Folder、Coding style、Naming、Git flow、Git commit message、Creating issue、Version control、UI/UX FSM、Unit test、Integration test…等等，內容會陸續修正與新增。
-
-建立良好的開發規範帶來諸多好處，包括一致性、可讀性、易於維護及擴充，讓專案管理和擴展更加便捷。
-
-.. Contents
-.. =============
-
-**Project Folder**
-   * :doc:`pages/ProjectFolder/project_directory_manage`
-**Coding Conventions**
-   * :doc:`pages/CodingConventions/python_coding_conventions`
-**Naming**
-   * :doc:`pages/Naming/python_naming`
-
-**Git**
-
-   **基礎**
-
-   * :doc:`pages/Gitlab/create_gitlab_project`
-   * :doc:`pages/Gitlab/sourcetree`
-   * :doc:`pages/Gitlab/create_issue`
-   * :doc:`pages/Gitlab/version_control`
-   * :doc:`pages/Gitlab/create_git_ignore`
-
-   **Github**
-
-   * :doc:`pages/Github/gitflow`
-   * :doc:`pages/Github/deleted_by_mistake`
-   * :doc:`pages/Github/commit_message`
-
-**Design**
-
-   * :doc:`pages/Design/uiux_fsm`
+一些專案的開發規範、工具教學與筆記，內容尚在建置中..
 
 
-Tool Notes
-================================
+**Project Conventions**
 
-一些系統工具、ubuntu工具、網站工具的筆記！
+   * :doc:`pages/index_project_conventions`
 
 **Ubuntu Tools**
 
-   * :doc:`pages/Ubuntu/ubuntu_samba`
-   * :doc:`pages/Ubuntu/ubuntu_ntp_server`
-   * :doc:`pages/Ubuntu/ubuntu_create_service`
+   * :doc:`pages/index_ubuntu_tools`
 
 .. toctree::
-   :caption: Project Folder
-   :maxdepth: 1
+   :caption: Project Conventions
+   :maxdepth: 2
    :hidden:
 
-   pages/ProjectFolder/project_directory_manage
+   pages/index_project_conventions
 
 .. toctree::
-   :caption: Coding Conventions
-   :maxdepth: 1
+   :caption: Tools
+   :maxdepth: 2
    :hidden:
 
-   pages/CodingConventions/python_coding_conventions
-
-.. toctree::
-   :caption: Naming
-   :maxdepth: 1
-   :hidden:
-
-   pages/Naming/python_naming
-
-.. toctree::
-   :caption: Gitlab
-   :maxdepth: 1
-   :hidden:
-
-   pages/Gitlab/create_gitlab_project
-   pages/Gitlab/sourcetree
-   pages/Gitlab/create_issue
-   pages/Gitlab/version_control
-   pages/Gitlab/create_git_ignore
-
-.. toctree::
-   :caption: Github
-   :maxdepth: 1
-   :hidden:
-
-   pages/Github/gitflow
-   pages/Github/deleted_by_mistake
-   pages/Github/commit_message
-
-.. toctree::
-   :caption: Design
-   :maxdepth: 1
-   :hidden:
-
-   pages/Design/uiux_fsm
-
-
-.. toctree::
-   :caption: Ubuntu Tools
-   :maxdepth: 1
-   :hidden:
-
-   pages/Ubuntu/ubuntu_samba
-   pages/Ubuntu/ubuntu_ntp_server
-   pages/Ubuntu/ubuntu_create_service
+   pages/index_ubuntu_tools
