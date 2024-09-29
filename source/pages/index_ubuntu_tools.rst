@@ -10,6 +10,7 @@ Ubuntu Tools
    * :doc:`tools/Ubuntu/ubuntu_ntp_server`
    * :doc:`tools/Ubuntu/ubuntu_create_service`
    * :doc:`tools/Ubuntu/ubuntu_network_priority`
+   * :doc:`tools/Ubuntu/ubuntu_netplan`
 
 
 .. toctree::
@@ -21,3 +22,4 @@ Ubuntu Tools
    tools/Ubuntu/ubuntu_ntp_server
    tools/Ubuntu/ubuntu_create_service
    tools/Ubuntu/ubuntu_network_priority
+   tools/Ubuntu/ubuntu_netplan
