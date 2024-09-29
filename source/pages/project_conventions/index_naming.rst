@@ -2,7 +2,7 @@
 Naming
 ================================
 
-**Design**
+**Naming**
 
    * :doc:`Naming/python_naming`
 

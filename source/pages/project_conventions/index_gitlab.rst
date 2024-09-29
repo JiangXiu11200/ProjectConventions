@@ -2,7 +2,7 @@
 Gitlab
 ================================
 
-**Design**
+**Gitlab**
 
    * :doc:`Gitlab/create_gitlab_project`
    * :doc:`Gitlab/sourcetree`

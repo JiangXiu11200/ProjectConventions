@@ -2,7 +2,7 @@
 Coding Conventions
 ================================
 
-**Ubuntu Tools**
+**Coding Conventions**
 
    * :doc:`CodingConventions/python_coding_conventions`
 

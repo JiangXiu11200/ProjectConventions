@@ -2,7 +2,7 @@
 Project Folder
 ================================
 
-**Design**
+**Project Folder**
 
    * :doc:`ProjectFolder/project_directory_manage`
 

@@ -2,7 +2,7 @@
 Github
 ================================
 
-**Design**
+**Github**
 
    * :doc:`Github/commit_message`
    * :doc:`Github/deleted_by_mistake`
