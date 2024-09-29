@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitLab - Version control &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Github" href="../index_github.html" />
+    <link rel="prev" title="GitLab - Create issue" href="create_issue.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index_project_folder.html">Project Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_coding_conventions.html">Coding Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_naming.html">Naming</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index_gitlab.html">Gitlab</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="create_gitlab_project.html">Create Gitlab Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sourcetree.html">SourceTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_git_ignore.html">GitLab - Create git ignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_issue.html">GitLab - Create issue</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GitLab - Version control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#version-control">Version control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">別再用日期控管你的程式碼</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">版本控管應具備</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">開始實作吧 !</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">未來更新新版本</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index_github.html">Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_design.html">Design</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_project_conventions.html">Project Conventions</a></li>
+          <li class="breadcrumb-item"><a href="../index_gitlab.html">Gitlab</a></li>
+      <li class="breadcrumb-item active">GitLab - Version control</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/project_conventions/Gitlab/version_control.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gitlab-version-control">
+<h1>GitLab - Version control<a class="headerlink" href="#gitlab-version-control" title="Link to this heading"></a></h1>
+<section id="version-control">
+<h2>Version control<a class="headerlink" href="#version-control" title="Link to this heading"></a></h2>
+</section>
+<section id="id1">
+<h2>別再用日期控管你的程式碼<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>開門見山的血淋淋範例:</p>
+<p>檔案:</p>
+<ul class="simple">
+<li><p>video_stream_20240726.py</p></li>
+<li><p>video_stream_20240807.py</p></li>
+<li><p>face_recognition_v2.py</p></li>
+<li><p>face_recognition_v2_1.py</p></li>
+<li><p>socket_server_20240503_v2.py</p></li>
+<li><p>ml_game_0803.py</p></li>
+<li><p>{擋案名稱} _ {日期} _ {版號}.副檔名*</p></li>
+</ul>
+<p>專案目錄:</p>
+<ul class="simple">
+<li><p>Andy_20210807_v1</p></li>
+<li><p>Andy_20210807_v2</p></li>
+<li><p>WebSocket_20240723_v1_test</p></li>
+<li><p>HumanFlowRecognition_v1_test</p></li>
+<li><p>HumanFlowRecognition_v1_svm</p></li>
+<li><p>HumanFlowRecognition_v2_20240807</p></li>
+<li><p>MeterRecognition_舊版</p></li>
+<li><p>{專案名稱} _ {日期/版號}*</p></li>
+</ul>
+<p>以上這些案例，相信大家在接觸Coding一路上多多少少可能都會遇到過，但這樣的控管方式，先撇除這個程式或專案是否會是多人開發好了，過了三個月，你還會記得當初存的socket_server_20240503_v2.py這個檔案到底在幹嘛嗎? v2跟v1差異在哪? 跟你目前手邊最新版差異在哪? 做了什麼更動?</p>
+<p>也許經歷了幾次的波折，你學會了撰寫README跟註解，寫了攏長的文字來說明你的v2差異在哪，花費了好多心思來寫版本差異，這是個方法，但不是個好方法。</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>運用Git來實現版本控制，
+軟體開發中的「版本」，泛指整個軟體研發週期中，某個時間點的狀態。</p>
+</div>
+</section>
+<section id="id2">
+<h2>版本控管應具備<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>紀錄一個或一組檔案在時間內的變更歷史</p></li>
+<li><p>藉由歷史紀錄，達到復原變更、追蹤變更、比對差異</p></li>
+<li><p>可助於多人協作時的溝通，無論開發中、測試抑或上線，可藉由版號來清楚明確的表達你的問題</p></li>
+</ul>
+<section id="id3">
+<h3>控管規則1. 版號標籤<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>很多時候我們會看到這個專案的版本為 version 1.5.3，其結構規則如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">{</span><span class="n">Major</span><span class="p">}</span><span class="o">.</span><span class="p">{</span><span class="n">Minor</span><span class="p">}</span><span class="o">.</span><span class="p">{</span><span class="n">Patch</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Major: 大版本號，通常在於定義大更新，更新大版本號通常用於對系統做了重大變更，。</dt><dd><p>ex: v1.x.x -&gt; v2.0.0，有可能v1跟v2在系統中某些部份已經不相容，大版本耕的根本，可能會影響使用者。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Minor: 小版本號，通常用於做小規模更新，如: 功能增減、調整與變動。</dt><dd><p>ex: 新增了一支API。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Patch: 向下相容修正，通常用於更新bug。</dt><dd><p>ex: 從v1.0.0 修補了一些bug，此時就可以release出一個v1.0.1。</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3>控管規則2. 版本發佈訊息<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>上一個小節已經說明關於版本號的定義了，那今天我的Git flow中有好多Commit了，我修改了好多bug跟新增了幾個功能，我也發佈新版本了，但大家還是一直問我: 這個版本跟上個版本差異在哪? 我好頭痛啊!</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>運用撰寫releases資訊，簡單又不失細節的描述整個版本的來龍去脈。</p>
+</div>
+<p>先看一個Open source的案例:
+<a class="reference external" href="https://github.com/open5gs/open5gs">Open5GS</a></p>
+<img alt="../../../_images/version_control-1.jpg" src="../../../_images/version_control-1.jpg" />
+<p>在Github中有一個release page，通常會在此會紀錄每次release的版本更新資訊。</p>
+<img alt="../../../_images/version_control-2.jpg" src="../../../_images/version_control-2.jpg" />
+<p>若每次Release都以條列的方式撰寫版本更新項目，無論是自己、協作夥伴、測試人員，或是任何使用你的專案/產品的使用者，都可以更輕易的知道他們所使用的版本與先前版本差異性，依此也可解決每次討論版本時候的囧境。</p>
+</section>
+</section>
+<section id="id5">
+<h2>開始實作吧 !<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>由於我們的GitLab上並沒有release page，但我們可以運用WiKi來紀載</p>
+<ol class="arabic simple">
+<li><p>進入專案Git WiKi page</p></li>
+</ol>
+<img alt="../../../_images/version_control-3.jpg" src="../../../_images/version_control-3.jpg" />
+<ol class="arabic simple" start="2">
+<li><p>創建WiKi</p></li>
+</ol>
+<img alt="../../../_images/version_control-4.jpg" src="../../../_images/version_control-4.jpg" />
+<ol class="arabic simple" start="3">
+<li><p>新增一個: 版本更新page</p></li>
+</ol>
+<img alt="../../../_images/version_control-5.jpg" src="../../../_images/version_control-5.jpg" />
+<ol class="arabic simple" start="4">
+<li><p>撰寫更新項目、Commit message並建立</p></li>
+</ol>
+<img alt="../../../_images/version_control-6.jpg" src="../../../_images/version_control-6.jpg" />
+<ol class="arabic simple" start="5">
+<li><p>完成</p></li>
+</ol>
+<img alt="../../../_images/version_control-7.jpg" src="../../../_images/version_control-7.jpg" />
+</section>
+<section id="id6">
+<h2>未來更新新版本<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>進入WiKi page</p></li>
+</ol>
+<img alt="../../../_images/version_control-8.jpg" src="../../../_images/version_control-8.jpg" />
+<ol class="arabic simple" start="2">
+<li><p>點選編輯</p></li>
+</ol>
+<img alt="../../../_images/version_control-9.jpg" src="../../../_images/version_control-9.jpg" />
+<ol class="arabic simple" start="3">
+<li><p>新增你release出來的新版本並save</p></li>
+</ol>
+<img alt="../../../_images/version_control-10.jpg" src="../../../_images/version_control-10.jpg" />
+<ol class="arabic simple" start="4">
+<li><p>完成</p></li>
+</ol>
+<img alt="../../../_images/version_control-11.jpg" src="../../../_images/version_control-11.jpg" />
+<p>就這麼簡單，你一定也做得到 !</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/that-game-designer/%E4%BC%81%E5%8A%83%E5%BF%85%E4%BF%AE%E8%AA%B2-%E4%BE%86%E8%81%8A%E8%81%8A-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-d758ca1b98d2">遊戲企劃必修課：來聊聊「版本管理」</a></p></li>
+<li><p><a class="reference external" href="https://hackmd.io/&#64;hjMUHxbVR9OPHKFmV6EFXg/SJd7VizB_">版本控制(Version Control)</a></p></li>
+<li><p><a class="reference external" href="https://www.ithome.com.tw/voice/85505">語意明確的版本變更</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="create_issue.html" class="btn btn-neutral float-left" title="GitLab - Create issue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index_github.html" class="btn btn-neutral float-right" title="Github" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

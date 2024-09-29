@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI/UX FSM &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Ubuntu Tools" href="../../index_ubuntu_tools.html" />
+    <link rel="prev" title="Design" href="../index_design.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index_project_folder.html">Project Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_coding_conventions.html">Coding Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_naming.html">Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_gitlab.html">Gitlab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_github.html">Github</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index_design.html">Design</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">UI/UX FSM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fsm">什麼是FSM?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ui-ux">UI/UX是什麼?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">FSM的好處</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">UI/UX FSM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">UI/UX FSM標準規範</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">參考資料</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_project_conventions.html">Project Conventions</a></li>
+          <li class="breadcrumb-item"><a href="../index_design.html">Design</a></li>
+      <li class="breadcrumb-item active">UI/UX FSM</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/project_conventions/Design/uiux_fsm.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ui-ux-fsm">
+<h1>UI/UX FSM<a class="headerlink" href="#ui-ux-fsm" title="Link to this heading"></a></h1>
+<section id="fsm">
+<h2>什麼是FSM?<a class="headerlink" href="#fsm" title="Link to this heading"></a></h2>
+<p>FSM的全名為「有限狀態」(Finite State Machine)，細節我就不贅述了，自行上網查吧! 讀電子系的你，不應該不知道什麼是FSM，但在本章節會描述我們利用FSM來做什麼，並且為什麼本章節叫做UI/UX FSM。</p>
+<p>延伸閱讀: <a class="reference external" href="https://medium.com/pm%E7%9A%84%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E7%AE%B1/%E5%A6%82%E4%BD%95%E6%9C%89%E9%82%8F%E8%BC%AF%E7%9A%84%E9%87%90%E6%B8%85%E4%BA%8B%E7%89%A9%E7%9A%84%E7%8B%80%E6%85%8B-f9fb59b15054">如何有邏輯的釐清事物的狀態？學習 FSM 有限狀態機</a></p>
+</section>
+<section id="ui-ux">
+<h2>UI/UX是什麼?<a class="headerlink" href="#ui-ux" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>UI(User Interface): 使用者與產品溝通的介面。ex: 你在IG頁面上看到的那些方框、排版、按鈕位置、現實動態欄位等等，這一系列介面，就是UI，且它包括了設計字體大小、美觀呈現、視覺效果等等。</p></li>
+<li><p>UX(User Experience): 使用者在使用產品時的感受。ex: 你在IG上滑動的時候，會有一種流暢感，這就是UX，且它包括了使用者的操作流程、使用者的情感反應、使用者的需求等等。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>FSM的好處<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>當今天專案是自己設計、自己開發前端、自己開發後端、自己測試、自己blabla..，任何項目都是你自己的時候，你大可以坦蕩的說: 幹嘛畫什麼FSM? 但倘若這個專案是多人協作需要溝通與多人測試、是一個產品需要維護、是會延續下去，並且你想讓這過程中的知識被留下，那你需要注意這些設計圖。</p>
+<p>推薦一篇文章 <a class="reference external" href="https://medium.com/&#64;vinceshao/better-way-of-designing-ui-states-chinese-a5c43e46d391">高效設計 UI 狀態、以及無痛與工程師溝通的 FSM 表格</a></p>
+</section>
+<section id="id3">
+<h2>UI/UX FSM<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<img alt="../../../_images/uiux_fsm-1.jpg" src="../../../_images/uiux_fsm-1.jpg" />
+<p>專案的開發原則上會基於此流程進行，不斷輪迴，從定義與盤整完需求-&gt; 分析實作方法與可行性-&gt; 設計系統架構-&gt; 開始Coding-&gt; 階段性驗證與測試-&gt; 確認需求是否完成或可以如何調整-&gt; …-&gt; 結案。</p>
+<p>而UI/UX FSM由上面這張圖來看，會被定位在設計與驗證。你可以能會覺得: 疑，UI/UX FSM確實是在設計沒錯，但為什麼跟驗證(測試) 有關?
+答案是因為: 你的系統當初怎麼設計，最終流程就應該如設計時一致，包括FSM中的每個狀態、輸入/輸出、事件、動作…，一系列流程都應該跟你的設計一致，缺一不可。</p>
+<p>延伸閱讀: <cite>Integration test - UI Test &lt;//&gt;</cite></p>
+</section>
+<section id="id4">
+<h2>UI/UX FSM標準規範<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>為此，我定義了繪製UI/UX FSM的標準格式，你可以利用Microsoft Visio進行繪製，學校有提供免費的Visio軟體可以下載。</p>
+<section id="id5">
+<h3>1. FSM符號定義<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<img alt="../../../_images/uiux_fsm-2.jpg" src="../../../_images/uiux_fsm-2.jpg" />
+<ul class="simple">
+<li><p>外部互動者: 流程會訪問到外部，並非系統中的流程。ex: 需要與管理員取得License。</p></li>
+<li><p>開始狀態: UI/UX的起點。</p></li>
+<li><p>頁面程序: 該頁面內會運行的程序。</p></li>
+<li><p>子頁面程序: 該頁面又跳出的子頁面程序。</p></li>
+<li><p>頁面跳轉: 轉換頁面。</p></li>
+<li><p>頁面轉換: 從某個Page跳轉到另一個Page。</p></li>
+<li><p>狀態轉換: 頁面內因觸發某事件導致狀態變換。</p></li>
+<li><p>訪問外部: 該頁面程序因為某事件觸發而訪問外部。</p></li>
+<li><p>程序內操作: 頁面內觸發事件後不跳轉，僅在原本頁面做處理。</p></li>
+<li><p>Button_{CLICK_OBJECT}｜{EXCUTION_STATUS}: 頁面內按下某個按鈕觸發事件｜頁面後端針對該事件做的一系列行為。</p></li>
+<li><p>Button_{CLICK_OBJECT}: 頁面內的按鈕事件</p></li>
+<li><p>Input_{EXCUTION_STATUS}: 頁面內輸入框｜頁面內針對輸入做的一系列行為。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>2. 繪製範例:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<img alt="../../../_images/uiux_fsm-3.jpg" src="../../../_images/uiux_fsm-3.jpg" />
+</section>
+</section>
+<section id="id7">
+<h2>參考資料<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cadiis.com.tw/blog/what-is-ui-ux">UI、UX是什麼？5分鐘快速看懂UI、UX設計差在哪！</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;vinceshao/better-way-of-designing-ui-states-chinese-a5c43e46d391">高效設計 UI 狀態、以及無痛與工程師溝通的 FSM 表格</a></p></li>
+<li><p><a class="reference external" href="https://ithelp.ithome.com.tw/articles/10215919">30-01 之何謂一個好的系統呢 ?</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index_design.html" class="btn btn-neutral float-left" title="Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../index_ubuntu_tools.html" class="btn btn-neutral float-right" title="Ubuntu Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

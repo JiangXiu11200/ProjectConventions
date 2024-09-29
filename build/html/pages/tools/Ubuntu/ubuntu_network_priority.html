@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uBuntu 網路連線優先級 &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="uBuntu Netplan網路卡設定" href="ubuntu_netplan.html" />
+    <link rel="prev" title="uBuntu Create service" href="ubuntu_create_service.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_samba.html">uBuntu 掛載smb共享資料夾</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_ntp_server.html">uBuntu NTP Server安裝與校時</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_create_service.html">uBuntu Create service</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">uBuntu 網路連線優先級</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ifmetric">1. 安裝ifmetric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routing-table">2. 查看Routing table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3. 設定路由順序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4. 斷線自動重設權限</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#check-network">4.1 建立check_network 腳本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rc-local">4.2 寫入rc.local，開機自動執行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rc-local-service">4.3 重啟rc-local.service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_netplan.html">uBuntu Netplan網路卡設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_wifi_control_nmcli.html">uBuntu 使用nmcli對Wi-Fi做控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_rclocal.html">uBuntu rc.local 開機自動執行命令</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+      <li class="breadcrumb-item active">uBuntu 網路連線優先級</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/tools/Ubuntu/ubuntu_network_priority.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ubuntu">
+<h1>uBuntu 網路連線優先級<a class="headerlink" href="#ubuntu" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>前言<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>當設備同時有兩張網卡，對內連接至攝影機或POE switch，對外連接到有線網路或4G/5G Router時，可以設定其預設網卡順序，使其不會抓錯或抓不到。
+今天若設備有兩個RJ45，分別為eno1與enp6s0，前者接有線網路對外，後者接上攝影機。</p>
+</section>
+<section id="ifmetric">
+<h2>1. 安裝ifmetric<a class="headerlink" href="#ifmetric" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ifmetric
+</pre></div>
+</div>
+</section>
+<section id="routing-table">
+<h2>2. 查看Routing table<a class="headerlink" href="#routing-table" title="Link to this heading"></a></h2>
+<p>使用route -n命令查看指標</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>route<span class="w"> </span>-n
+</pre></div>
+</div>
+<p>輸出如下，攝影機IP設定為192.168.226.X，對外網路則為192.168.1.X。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@ubuntu1804desktop:~$<span class="w"> </span>route<span class="w"> </span>-n
+Kernel<span class="w"> </span>IP<span class="w"> </span>routing<span class="w"> </span>table
+Destination<span class="w">     </span>Gateway<span class="w">         </span>Genmask<span class="w">         </span>Flags<span class="w"> </span>Metric<span class="w"> </span>Ref<span class="w">    </span>Use<span class="w"> </span>Iface
+<span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">192</span>.168.1.1<span class="w">     </span><span class="m">0</span>.0.0.0<span class="w">         </span>UG<span class="w">    </span><span class="m">600</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eno1
+<span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">192</span>.168.226.254<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w">         </span>UG<span class="w">    </span><span class="m">100</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>enp6s0
+<span class="m">169</span>.254.0.0<span class="w">     </span><span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">255</span>.255.0.0<span class="w">     </span>U<span class="w">     </span><span class="m">600</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eno1
+<span class="m">192</span>.168.1.0<span class="w">     </span><span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">255</span>.255.255.0<span class="w">   </span>U<span class="w">     </span><span class="m">600</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eno1
+<span class="m">192</span>.168.226.0<span class="w">   </span><span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">255</span>.255.255.0<span class="w">   </span>U<span class="w">     </span><span class="m">100</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>enp6s0
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>3. 設定路由順序<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>因為對外網路使用的網卡為eno1，故需要把eno1的指標降低，使其大於另一張網卡。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ifmetric<span class="w"> </span>eno1<span class="w"> </span><span class="m">100</span>
+sudo<span class="w"> </span>ifmetric<span class="w"> </span>enp6s0<span class="w"> </span><span class="m">103</span>
+</pre></div>
+</div>
+<p>設定完畢如下</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@ubuntu1804desktop:~$<span class="w"> </span>route<span class="w"> </span>-n
+Kernel<span class="w"> </span>IP<span class="w"> </span>routing<span class="w"> </span>table
+Destination<span class="w">     </span>Gateway<span class="w">         </span>Genmask<span class="w">         </span>Flags<span class="w"> </span>Metric<span class="w"> </span>Ref<span class="w">    </span>Use<span class="w"> </span>Iface
+<span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">192</span>.168.1.1<span class="w">     </span><span class="m">0</span>.0.0.0<span class="w">         </span>UG<span class="w">    </span><span class="m">100</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eno1
+<span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">192</span>.168.226.254<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w">         </span>UG<span class="w">    </span><span class="m">103</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>enp6s0
+<span class="m">169</span>.254.0.0<span class="w">     </span><span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">255</span>.255.0.0<span class="w">     </span>U<span class="w">     </span><span class="m">100</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eno1
+<span class="m">192</span>.168.1.0<span class="w">     </span><span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">255</span>.255.255.0<span class="w">   </span>U<span class="w">     </span><span class="m">100</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eno1
+<span class="m">192</span>.168.226.0<span class="w">   </span><span class="m">0</span>.0.0.0<span class="w">         </span><span class="m">255</span>.255.255.0<span class="w">   </span>U<span class="w">     </span><span class="m">103</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>enp6s0
+</pre></div>
+</div>
+<p>現在，ubuntu會使用eno1進行連線，設定完畢即馬上生效。</p>
+</section>
+<section id="id3">
+<h2>4. 斷線自動重設權限<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>透過建立 check_network.sh 腳本，設定網卡順序後，始對外的網卡定期ping 8.8.8.8，確認連線，若斷線重插或關閉重啟，則自動設定網卡順序。</p>
+<section id="check-network">
+<h3>4.1 建立check_network 腳本<a class="headerlink" href="#check-network" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>check_network.sh
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">reconnectTimes</span><span class="o">=</span><span class="m">0</span>
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$reconnectTimes</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span>ping<span class="w"> </span>-q<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>-W<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">8</span>.8.8.8<span class="p">;</span><span class="k">then</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Network online&quot;</span>
+<span class="w">            </span><span class="nv">reconnectTimes</span><span class="o">=</span><span class="k">$((</span><span class="m">0</span><span class="k">))</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$reconnectTimes</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span>sudo<span class="w"> </span>ifmetric<span class="w"> </span>enp2s0<span class="w"> </span><span class="m">103</span>
+<span class="w">            </span>sudo<span class="w"> </span>ifmetric<span class="w"> </span>eno1<span class="w"> </span><span class="m">100</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Network try reconnect&quot;</span>
+<span class="w">            </span><span class="nv">reconnectTimes</span><span class="o">=</span><span class="k">$((</span><span class="nv">$reconnectTimes</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$reconnectTimes</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span>sleep<span class="w"> </span>1m
+<span class="w">    </span><span class="k">done</span>
+reboot
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
+<section id="rc-local">
+<h3>4.2 寫入rc.local，開機自動執行<a class="headerlink" href="#rc-local" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/rc.local
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -e</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/var/log/rclocal.log
+
+sudo<span class="w"> </span>bash<span class="w"> </span>/home/user/checkNetwork.sh<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c1"># 啟動指令</span>
+
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
+<section id="rc-local-service">
+<h3>4.3 重啟rc-local.service<a class="headerlink" href="#rc-local-service" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>rc-local.service
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ubuntu_create_service.html" class="btn btn-neutral float-left" title="uBuntu Create service" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ubuntu_netplan.html" class="btn btn-neutral float-right" title="uBuntu Netplan網路卡設定" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

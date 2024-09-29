@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Flow - 延伸操作1. 誤刪分支 &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Design" href="../index_design.html" />
+    <link rel="prev" title="Commit Message" href="commit_message.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index_project_folder.html">Project Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_coding_conventions.html">Coding Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_naming.html">Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_gitlab.html">Gitlab</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index_github.html">Github</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gitflow.html">Git Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commit_message.html">Commit Message</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Git Flow - 延伸操作1. 誤刪分支</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">延伸操作1. 誤刪分支</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index_design.html">Design</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_project_conventions.html">Project Conventions</a></li>
+          <li class="breadcrumb-item"><a href="../index_github.html">Github</a></li>
+      <li class="breadcrumb-item active">Git Flow - 延伸操作1. 誤刪分支</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/project_conventions/Github/deleted_by_mistake.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="git-flow-1">
+<h1>Git Flow - 延伸操作1. 誤刪分支<a class="headerlink" href="#git-flow-1" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>延伸操作1. 誤刪分支<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>情境1. 誤刪孤立分支<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>假設我們正在開發或是曾經有開發一支分支: feature/test，但一個不小心，刪除了Remote上的分支</p>
+<img alt="../../../_images/branch_deleted_by_mistake-1.jpg" src="../../../_images/branch_deleted_by_mistake-1.jpg" />
+<p>基本上你在操作任何刪除動作，SourceTree都會跳出警告訊息</p>
+<img alt="../../../_images/branch_deleted_by_mistake-2.jpg" src="../../../_images/branch_deleted_by_mistake-2.jpg" />
+<p>OK! 不小心刪除了，原本只是想整理分支，沒想到連同歷史的commit都被刪除了!!</p>
+<img alt="../../../_images/branch_deleted_by_mistake-3.jpg" src="../../../_images/branch_deleted_by_mistake-3.jpg" />
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>在 Git 中，若分支上的 Commit 沒有被合併到其他分支且該分支被刪除，那麼這些 commit 將會變得「孤立」（orphaned），在一段時間後可能被 Git 的垃圾回收機制（git gc）永久刪除。
+反之，如果分支上的 commit 已經被合併到其他分支（如 develop），即使刪除該分支，這些 commit 仍然會保留在合併的分支中，因為 Git 的歷史會完整地保留這些已合併的改動。</p>
+<p>by ChatGPT</p>
+</div>
+</section>
+<section id="id3">
+<h3>解決方法<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>到該專案目錄下以Command執行</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>reflog
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>找到你剛剛刪除的操作</p></li>
+</ol>
+<img alt="../../../_images/branch_deleted_by_mistake-4.jpg" src="../../../_images/branch_deleted_by_mistake-4.jpg" />
+<p>3. 輸入以下指令回復分支
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git checkout -b feature/test &lt;commit hash&gt;</p>
+</div></blockquote>
+<img alt="../../../_images/branch_deleted_by_mistake-5.jpg" src="../../../_images/branch_deleted_by_mistake-5.jpg" />
+<ol class="arabic simple" start="4">
+<li><p>已復原。但記得，此時的分支是在你的本地端，記得再push到remote</p></li>
+</ol>
+<img alt="../../../_images/branch_deleted_by_mistake-6.jpg" src="../../../_images/branch_deleted_by_mistake-6.jpg" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="commit_message.html" class="btn btn-neutral float-left" title="Commit Message" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index_design.html" class="btn btn-neutral float-right" title="Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

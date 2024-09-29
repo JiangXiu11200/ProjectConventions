@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commit Message &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Git Flow - 延伸操作1. 誤刪分支" href="deleted_by_mistake.html" />
+    <link rel="prev" title="Git Flow" href="gitflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index_project_folder.html">Project Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_coding_conventions.html">Coding Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_naming.html">Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index_gitlab.html">Gitlab</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index_github.html">Github</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gitflow.html">Git Flow</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Commit Message</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Commit Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git-commit-commit-message">為什麼Git Commit也要有規範?! Commit message重要嗎?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Commit message的規範 - 約定式提交</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">總結</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">參考資料</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deleted_by_mistake.html">Git Flow - 延伸操作1. 誤刪分支</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index_design.html">Design</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_project_conventions.html">Project Conventions</a></li>
+          <li class="breadcrumb-item"><a href="../index_github.html">Github</a></li>
+      <li class="breadcrumb-item active">Commit Message</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/project_conventions/Github/commit_message.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="commit-message">
+<h1>Commit Message<a class="headerlink" href="#commit-message" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>Commit Message<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+</section>
+<section id="git-commit-commit-message">
+<h2>為什麼Git Commit也要有規範?! Commit message重要嗎?<a class="headerlink" href="#git-commit-commit-message" title="Link to this heading"></a></h2>
+<p>當你的專案只有你自己一個人在開發，並且永遠不會有其他人時，你當然可以亂寫你的commit message，畢竟那是你自己的事情，不過你依然會遇到一個風險: 一個月後的你測試或開發到一半突然發現: oh! 這個bug好像之前遇過，來翻一下之前的控管紀錄好了..。阿! 慘了，我之前的紀錄到底在寫什麼鬼?!! 這問題到底在哪啊? 算了，重寫好了..</p>
+<p>抑或是: Oh! 我這段程式到底在寫什麼? 這是三個月前寫的，奇怪，我怎麼會這樣寫呢? 來翻一下紀錄好了。阿! 慘了，我之前的紀錄到底在寫什麼鬼?!!</p>
+<p>回到主題: Commit message重要嗎?
+答案是: 肯定重要。</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Commit Message 最好兼俱 Why 及 What，讓日後進行維護的人員，得以更快進入狀況。</p>
+</div>
+<p>良好的Commit message可以讓日後維護更有效率，無論是你自己維護專案、多人一起開發，抑或是已經交接給其他人…，好的Commit可以讓任何參與專案的人員，都更快了解這些程式碼撰寫的原因。</p>
+</section>
+<section id="id2">
+<h2>Commit message的規範 - 約定式提交<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">約定式提交</a> 是一個基於commit message的規範，這個規範的目的是讓commit message更具有可讀性，並且可以自動生成changelog。</p>
+<p>約定式提交是一種輕量化的提交規則，利用一些簡單條件來建立明確的提交歷史。</p>
+<section id="id4">
+<h3>1. 提交結構與說明<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;type&gt;<span class="o">[</span>optional<span class="w"> </span>scope<span class="o">]</span>:<span class="w"> </span>&lt;description&gt;
+
+<span class="o">[</span>optional<span class="w"> </span>body<span class="o">]</span>
+
+<span class="o">[</span>optional<span class="w"> </span>footer<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>type: 提交類型</dt><dd><p>常用提交類型:
+* feat: 新增一個功能。
+* fix: 修正一個bug。
+* docs: 新增文件或註解。
+* style: 修改了程式的命名或編寫風格。(前提是不影響程式碼原有功能)
+* refactor: 重構程式碼。
+* test: 測試。
+* build: 建造了一個新的版本。(通常用於release new version)
+* chore: 其他不影響程式碼的變動。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>scope: 作用範圍</dt><dd><ul>
+<li><p>作用範圍是可選的，用於描述commit影響的範圍。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>description: 提交描述。</dt><dd><ul>
+<li><p>一個簡短的描述，描述這支Commit具體做了什麼事情。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>body: 提交內容</dt><dd><ul>
+<li><p>提交的詳細內容，可以包含更多的資訊。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>footer: 提交訊息。</dt><dd><ul>
+<li><p>些重大改變或是其他標記，我們常用的是標記Issue訊息。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h3>2. 提交範例<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>範例1. 修復Bug:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fix<span class="o">(</span>core<span class="o">)</span>:
+fix<span class="w"> </span>apply<span class="w"> </span>k8s<span class="w"> </span>error<span class="w"> </span>causes<span class="w"> </span>web<span class="w"> </span>data<span class="w"> </span>to<span class="w"> </span>fail<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>deleted.
+
+<span class="o">(</span>issue#13<span class="o">)</span>
+</pre></div>
+</div>
+<p>由此可知，這支Commit修復了’Core’這個Module的一個Bug，修復了因為k8s導致Web數據無法清除的問題，並且這問題被記錄於專案的issue#13。</p>
+<p><a class="reference external" href="../Gitlab/creating_issue">延伸閱讀: Creating issue</a></p>
+<ul class="simple">
+<li><p>範例2. 新增功能:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>feat<span class="o">(</span>account<span class="o">)</span>:
+add<span class="w"> </span>an<span class="w"> </span>API<span class="w"> </span>name<span class="w"> </span>management<span class="w"> </span>page.
+</pre></div>
+</div>
+<p>淺顯易懂，這支Commit對’account’這個Module新增了一個API name管理頁面。</p>
+<ul class="simple">
+<li><p>範例3. 重構程式碼:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>refactor<span class="o">(</span>core<span class="o">)</span>:
+refactor<span class="w"> </span>the<span class="w"> </span>code<span class="w"> </span>to<span class="w"> </span>make<span class="w"> </span>it<span class="w"> </span>more<span class="w"> </span>readable.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>範例4. 測試:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">test</span><span class="w"> </span><span class="o">(</span>alert<span class="o">)</span>:<span class="w"> </span>add<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>mail<span class="w"> </span>account
+adjust<span class="w"> </span>tests<span class="w"> </span><span class="k">for</span><span class="w"> </span>alert_rule<span class="w"> </span>and<span class="w"> </span>alert
+</pre></div>
+</div>
+<p>是否同樣淺顯易懂，看描述可知，這支Commit對’alert’這個Module新增了使用者信箱的測試，並且調整了測試內容。</p>
+</section>
+</section>
+<section id="id6">
+<h2>總結<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>每次Commit都必須包含類型(type)、修改範圍(your_project_scope)、簡要描述(describe)，目前中心的專案，必須符合前三項，而內文(content)、與頁尾(footer)則依照你的需求，如何撰寫可以讓其他人一眼就看得懂你在推什麼。</p></li>
+<li><p>好的Commit message可以讓整體控管更具有結構性，讓協作、參與開發、未來交接，抑或是未來的你自己，有辦法知道，你得專案一路上到底做了什麼事情。</p></li>
+</ol>
+</section>
+<section id="id7">
+<h2>參考資料<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.conventionalcommits.org/zh-hant/v1.0.0-beta.4/">約定式提交 一種用於增加提交說明之人機可讀性意義的規範</a></p></li>
+<li><p><a class="reference external" href="https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html">Git Commit Message 這樣寫會更好，替專案引入規範與範例</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gitflow.html" class="btn btn-neutral float-left" title="Git Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deleted_by_mistake.html" class="btn btn-neutral float-right" title="Git Flow - 延伸操作1. 誤刪分支" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

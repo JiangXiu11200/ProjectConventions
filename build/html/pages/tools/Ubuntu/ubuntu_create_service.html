@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uBuntu Create service &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="uBuntu 網路連線優先級" href="ubuntu_network_priority.html" />
+    <link rel="prev" title="uBuntu NTP Server安裝與校時" href="ubuntu_ntp_server.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_samba.html">uBuntu 掛載smb共享資料夾</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_ntp_server.html">uBuntu NTP Server安裝與校時</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">uBuntu Create service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-file">建立service file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">參考資料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_network_priority.html">uBuntu 網路連線優先級</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_netplan.html">uBuntu Netplan網路卡設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_wifi_control_nmcli.html">uBuntu 使用nmcli對Wi-Fi做控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_rclocal.html">uBuntu rc.local 開機自動執行命令</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+      <li class="breadcrumb-item active">uBuntu Create service</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/tools/Ubuntu/ubuntu_create_service.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ubuntu-create-service">
+<h1>uBuntu Create service<a class="headerlink" href="#ubuntu-create-service" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>前言<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>透過建立ubuntu系統service，可以方便開機後始系統自動於背景中運行，系統中的各項service通常建立於: /etc/systemd/system/ 底下。</p>
+</section>
+<section id="service-file">
+<h2>建立service file<a class="headerlink" href="#service-file" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>至目錄下建立service file</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/etc/systemd/system/
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/my_service.service
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>編輯service file</p></li>
+</ol>
+<p>內容可以參考參本文的參考資料撰寫。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>my_service_name<span class="w"> </span>service<span class="w">     </span><span class="c1"># service 描述</span>
+<span class="nv">StartLimitIntervalSec</span><span class="o">=</span><span class="m">0</span><span class="w">                 </span><span class="c1"># 取消對服務重啟的限制</span>
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>simple<span class="w">                             </span><span class="c1"># 定義啟動時的進程行為: simple/forking/oneshot/...</span>
+<span class="nv">User</span><span class="o">=</span>user<span class="w">                               </span><span class="c1"># 指定運行服務的用戶</span>
+<span class="nv">Group</span><span class="o">=</span>user<span class="w">                              </span><span class="c1"># 指定運行服務的用戶組</span>
+<span class="nv">WorkingDirectory</span><span class="o">=</span>/home/user/motorVehiclesOffice<span class="w">  </span><span class="c1"># 執行程式目錄</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/python3<span class="w"> </span>manage.py<span class="w"> </span>runserver<span class="w"> </span><span class="m">0</span>.0.0.0:8000<span class="w"> </span>--insecure<span class="w">  </span><span class="c1"># 運行命令，這邊的範例是啟動django web server</span>
+<span class="nv">Restart</span><span class="o">=</span>always<span class="w">                          </span><span class="c1"># 定義重啟狀況: 總是重啟</span>
+<span class="nv">KillSignal</span><span class="o">=</span>SIGINT<span class="w">                       </span><span class="c1"># 默認關閉process方式</span>
+<span class="nv">RestartSec</span><span class="o">=</span><span class="m">1</span><span class="w">                            </span><span class="c1"># 重啟服務間隔</span>
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target<span class="w">              </span><span class="c1"># 表示該服務所在的Target, Target表示一組服務</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>啟動service</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>my_service.service
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>設定service開機啟動</p></li>
+</ol>
+<p>如果要開機自動啟動，必須執行daemon-reload重新載入新建立的服務，或是如果有修改服務內容，也需執行。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>my_service.service
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>查看service狀態</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>my_service.service
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>重新啟動service</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>my_service.service
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>停止service</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>my_service.service
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>刪除service</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>my_service.service
+sudo<span class="w"> </span>rm<span class="w"> </span>/etc/systemd/system/my_service.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>參考資料<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.3chy2.com.tw/3c%E8%B3%87%E8%A8%8A/linux-systemd-%E8%A9%B3%E7%B4%B0%E4%BB%8B%E7%B4%B9-unit%E3%80%81unit-file%E3%80%81systemctl%E3%80%81target/">Linux Systemd 詳細介紹: Unit、Unit File、Systemctl、Target</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ubuntu_ntp_server.html" class="btn btn-neutral float-left" title="uBuntu NTP Server安裝與校時" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ubuntu_network_priority.html" class="btn btn-neutral float-right" title="uBuntu 網路連線優先級" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uBuntu 使用nmcli對Wi-Fi做控制 &mdash; ProjectConventionsAndNotes 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="uBuntu rc.local 開機自動執行命令" href="ubuntu_rclocal.html" />
+    <link rel="prev" title="uBuntu Netplan網路卡設定" href="ubuntu_netplan.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ProjectConventionsAndNotes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Project Conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index_project_conventions.html">Project Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index_ubuntu_tools.html">Ubuntu Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_samba.html">uBuntu 掛載smb共享資料夾</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_ntp_server.html">uBuntu NTP Server安裝與校時</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_create_service.html">uBuntu Create service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_network_priority.html">uBuntu 網路連線優先級</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_netplan.html">uBuntu Netplan網路卡設定</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">uBuntu 使用nmcli對Wi-Fi做控制</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#networkmanager">1. 安裝NetworkManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nmcli">2. nmcli各種使用與法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">2.1 顯示已知的網路設備狀態</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#networkmanager-uuid">2.2 顯示每個網卡(NetworkManager)連線狀態與UUID等資訊</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wifi">2.3 確保WiFi已開啟</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uuid">2.4 顯示所有已連接設備名稱與UUID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wi-fiuuid">2.5 顯示當前連接的Wi-Fi設備名稱、UUID等資訊</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.6 啟動/停止/連線/斷線</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wi-fi">2.7 連線至指定的Wi-Fi網路</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.8 指定網卡中斷斷線</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.10 清除已連線過的Wi-Fi網路</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">環境設定：nmcli指令呼叫，無須輸入密碼</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#netdev">1. 將您的用戶添加到netdev組中：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sudoersnetdevnmcli">2. 設置sudoers文件以允許netdev組的成員使用nmcli命令而無需輸入密碼：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">參考資料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ubuntu_rclocal.html">uBuntu rc.local 開機自動執行命令</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ProjectConventionsAndNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index_ubuntu_tools.html">Ubuntu Tools</a></li>
+      <li class="breadcrumb-item active">uBuntu 使用nmcli對Wi-Fi做控制</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JiangXiu11200/ProjectConventions/blob/master/source/pages/tools/Ubuntu/ubuntu_wifi_control_nmcli.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ubuntu-nmcliwi-fi">
+<h1>uBuntu 使用nmcli對Wi-Fi做控制<a class="headerlink" href="#ubuntu-nmcliwi-fi" title="Link to this heading"></a></h1>
+<section id="networkmanager">
+<h2>1. 安裝NetworkManager<a class="headerlink" href="#networkmanager" title="Link to this heading"></a></h2>
+<p>NetworkManager可用於以下連接類型：以太網、VLAN、網橋、綁定、成組、Wi-Fi、移動寬帶（比如移動網絡3G）及IP-over-InfiniBand。任何網路控制都會用到NetworkManager。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>network-manager
+</pre></div>
+</div>
+</section>
+<section id="nmcli">
+<h2>2. nmcli各種使用與法<a class="headerlink" href="#nmcli" title="Link to this heading"></a></h2>
+<p>nmcli 是一個允許用戶及腳本與NetworkManager互動的命令行工具。</p>
+<section id="id1">
+<h3>2.1 顯示已知的網路設備狀態<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>d
+</pre></div>
+</div>
+</section>
+<section id="networkmanager-uuid">
+<h3>2.2 顯示每個網卡(NetworkManager)連線狀態與UUID等資訊<a class="headerlink" href="#networkmanager-uuid" title="Link to this heading"></a></h3>
+<p>命令”c”用於連接，是”connections”的縮寫形式。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>c
+</pre></div>
+</div>
+</section>
+<section id="wifi">
+<h3>2.3 確保WiFi已開啟<a class="headerlink" href="#wifi" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>radio<span class="w"> </span>wifi<span class="w"> </span>on
+</pre></div>
+</div>
+</section>
+<section id="uuid">
+<h3>2.4 顯示所有已連接設備名稱與UUID<a class="headerlink" href="#uuid" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>connection<span class="w"> </span>show
+</pre></div>
+</div>
+</section>
+<section id="wi-fiuuid">
+<h3>2.5 顯示當前連接的Wi-Fi設備名稱、UUID等資訊<a class="headerlink" href="#wi-fiuuid" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>connection<span class="w"> </span>show<span class="w"> </span>--active
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>2.6 啟動/停止/連線/斷線<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>connection<span class="w"> </span>down<span class="w"> </span>connection-name
+nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"> </span>connection-name
+nmcli<span class="w"> </span>device<span class="w"> </span>disconnect<span class="w"> </span>interface-name
+nmcli<span class="w"> </span>device<span class="w"> </span>connect<span class="w"> </span>interface-name
+</pre></div>
+</div>
+</section>
+<section id="wi-fi">
+<h3>2.7 連線至指定的Wi-Fi網路<a class="headerlink" href="#wi-fi" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nmcli<span class="w"> </span>d<span class="w"> </span>wifi<span class="w"> </span>connect<span class="w"> </span><span class="s1">&#39;Wi-Fi名稱&#39;</span><span class="w"> </span>password<span class="w"> </span><span class="s1">&#39;密碼&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>2.8 指定網卡中斷斷線<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nmcli<span class="w"> </span>dev<span class="w"> </span>disconnect<span class="w"> </span>iface<span class="w"> </span><span class="s1">&#39;interface-name&#39;</span>
+</pre></div>
+</div>
+<p>2.9 顯示出當前已連線過的Wi-Fi網路UUID</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>connection<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">20</span>-55
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>2.10 清除已連線過的Wi-Fi網路<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli<span class="w"> </span>connection<span class="w"> </span>delete<span class="w"> </span>uuid<span class="w"> </span><span class="s1">&#39;Wi-Fi-UUID&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>環境設定：nmcli指令呼叫，無須輸入密碼<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>若透過一些腳本或是程式，需要使用nmcli指令，但又不想每次都要輸入密碼，可以透過以下方式設定。</p>
+<section id="netdev">
+<h3>1. 將您的用戶添加到netdev組中：<a class="headerlink" href="#netdev" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>netdev<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+</section>
+<section id="sudoersnetdevnmcli">
+<h3>2. 設置sudoers文件以允許netdev組的成員使用nmcli命令而無需輸入密碼：<a class="headerlink" href="#sudoersnetdevnmcli" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>visudo
+</pre></div>
+</div>
+<p>在文件中添加以下行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%netdev<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>root<span class="o">)</span><span class="w"> </span>NOPASSWD:<span class="w"> </span>/usr/bin/nmcli
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2>參考資料<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cnblogs.com/hokori/p/14265509.html">網絡管理之命令行工具nmcli</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ubuntu_netplan.html" class="btn btn-neutral float-left" title="uBuntu Netplan網路卡設定" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ubuntu_rclocal.html" class="btn btn-neutral float-right" title="uBuntu rc.local 開機自動執行命令" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, JiangXiu11200.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
