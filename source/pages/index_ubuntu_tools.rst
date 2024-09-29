@@ -12,6 +12,7 @@ Ubuntu Tools
    * :doc:`tools/Ubuntu/ubuntu_network_priority`
    * :doc:`tools/Ubuntu/ubuntu_netplan`
    * :doc:`tools/Ubuntu/ubuntu_wifi_control_nmcli`
+   * :doc:`tools/Ubuntu/ubuntu_rclocal`
 
 
 .. toctree::
@@ -25,3 +26,4 @@ Ubuntu Tools
    tools/Ubuntu/ubuntu_network_priority
    tools/Ubuntu/ubuntu_netplan
    tools/Ubuntu/ubuntu_wifi_control_nmcli
+   tools/Ubuntu/ubuntu_rclocal
