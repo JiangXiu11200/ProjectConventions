@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "ProjectConventions"
+project = "ProjectConventionsAndNotes"
 copyright = "2024, JiangXiu11200"
 author = "JiangXiu11200"
 release = "0.0.1"

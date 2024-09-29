@@ -9,6 +9,7 @@ Ubuntu Tools
    * :doc:`tools/Ubuntu/ubuntu_samba`
    * :doc:`tools/Ubuntu/ubuntu_ntp_server`
    * :doc:`tools/Ubuntu/ubuntu_create_service`
+   * :doc:`tools/Ubuntu/ubuntu_network_priority`
 
 
 .. toctree::
@@ -19,3 +20,4 @@ Ubuntu Tools
    tools/Ubuntu/ubuntu_samba
    tools/Ubuntu/ubuntu_ntp_server
    tools/Ubuntu/ubuntu_create_service
+   tools/Ubuntu/ubuntu_network_priority
