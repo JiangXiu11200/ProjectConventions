@@ -11,6 +11,7 @@ Ubuntu Tools
    * :doc:`tools/Ubuntu/ubuntu_create_service`
    * :doc:`tools/Ubuntu/ubuntu_network_priority`
    * :doc:`tools/Ubuntu/ubuntu_netplan`
+   * :doc:`tools/Ubuntu/ubuntu_wifi_control_nmcli`
 
 
 .. toctree::
@@ -23,3 +24,4 @@ Ubuntu Tools
    tools/Ubuntu/ubuntu_create_service
    tools/Ubuntu/ubuntu_network_priority
    tools/Ubuntu/ubuntu_netplan
+   tools/Ubuntu/ubuntu_wifi_control_nmcli
