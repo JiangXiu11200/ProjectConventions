@@ -26,9 +26,11 @@ Python官方有一個編碼規範的風格指南: `PEP 8` (Python Enhancement Pr
 **安裝Black Formatter的步驟:**
 
 1. 設定畫面：
+
 .. image:: /assets/CodingConventions/black_formatter.png
 
 2. 在設定中新增``--line-length=150``
+
 .. image:: /assets/CodingConventions/length=150.png
 
 PEP8程式碼編排規則
