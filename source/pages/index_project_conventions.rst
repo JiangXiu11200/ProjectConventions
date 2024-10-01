@@ -6,18 +6,14 @@ Project Conventions
 
 建立良好的開發規範帶來諸多好處，包括一致性、可讀性、易於維護及擴充，讓專案管理和擴展更加便捷。
 
+**Project Conventions**
 
-* :doc:`project_conventions/index_project_folder`
-
-* :doc:`project_conventions/index_coding_conventions`
-
-* :doc:`project_conventions/index_naming`
-
-* :doc:`project_conventions/index_gitlab`
-
-* :doc:`project_conventions/index_github`
-
-* :doc:`project_conventions/index_design`
+   * :doc:`project_conventions/index_project_folder`
+   * :doc:`project_conventions/index_coding_conventions`
+   * :doc:`project_conventions/index_naming`
+   * :doc:`project_conventions/index_gitlab`
+   * :doc:`project_conventions/index_github`
+   * :doc:`project_conventions/index_design`
 
 
 .. toctree::
