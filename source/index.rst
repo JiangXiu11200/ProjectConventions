@@ -17,6 +17,10 @@ Project conventions and Notes
 
    * :doc:`pages/index_ubuntu_tools`
 
+**ProxmoxVE**
+
+   * :doc:`pages/index_proxmox`
+
 .. toctree::
    :caption: Project Conventions
    :maxdepth: 2
@@ -30,3 +34,10 @@ Project conventions and Notes
    :hidden:
 
    pages/index_ubuntu_tools
+
+.. toctree::
+   :caption: ProxmoxVE
+   :maxdepth: 2
+   :hidden:
+
+   pages/index_proxmox
