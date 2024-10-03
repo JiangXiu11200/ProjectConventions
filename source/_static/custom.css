@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.centered-first-column td:first-child,
+.centered-first-column th:first-child {
+    text-align: center;
+}
