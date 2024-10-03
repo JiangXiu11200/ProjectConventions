@@ -11,7 +11,7 @@ Gitlab
    * :doc:`Gitlab/version_control`
 
 .. toctree::
-   :caption: Github
+   :caption: Gitlab
    :maxdepth: 3
    :hidden:
 
