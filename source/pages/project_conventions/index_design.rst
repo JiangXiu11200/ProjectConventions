@@ -6,6 +6,7 @@ Design
 
    * :doc:`Design/solid`
    * :doc:`Design/pytohn_oop_object`
+   * :doc:`Design/pytohn_oop_encapsulation`
    * :doc:`Design/uiux_fsm`
 
 
@@ -16,4 +17,5 @@ Design
 
    Design/solid
    Design/pytohn_oop_object
+   Design/pytohn_oop_encapsulation
    Design/uiux_fsm
