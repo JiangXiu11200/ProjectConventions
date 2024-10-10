@@ -60,3 +60,11 @@ Python OOP - Object
 
 * 建立一個類別時，可以透過__init__()來指派類別中的屬性，但是，類別的定義其實不一定需要__init__()，若你並沒有要給予該物件預設值，是可以不用寫__init__。
 * 關於self：__init__()中的self參數是指向物件本身的引用。當你創建一個物件時，Python會將這個物件的實例作為self傳遞給__init__()，這樣你可以在__init__()方法中定義該物件的屬性。
+
+參考資料
+----------------
+* ChatGPT4o
+* `物件導向程式設計（使用Python） <https://hackmd.io/@fgisc32ndxckeisc38th/OOP#1-%E9%A1%9E%E5%88%A5%EF%BC%88class%EF%BC%89%E8%88%87%E7%89%A9%E4%BB%B6%EF%BC%88object%EF%BC%89>`_
+* `[Python]-關於物件導向程式設計 (Object-Oriented Programming, OOP) <https://medium.com/@leo122196/python-%E9%97%9C%E6%96%BC%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88-object-oriented-programming-oop-b3ce7ae019f3#0176>`_
+* `[Python]-封裝 (Encapsulation): 物件導向的三大特色之一 <https://medium.com/@leo122196/python-%E5%B0%81%E8%A3%9D-encapsulation-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E8%89%B2%E4%B9%8B%E4%B8%80-9196f8aa4ef6>`_
+* `[Python Property 教學：保護變數資料的 Getter 與 Setter <https://haosquare.com/python-property/#Property_%E7%9A%84%E5%A5%BD%E8%99%95>`_
