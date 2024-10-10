@@ -5,6 +5,7 @@ Design
 **Design**
 
    * :doc:`Design/solid`
+   * :doc:`Design/pytohn_oop_object`
    * :doc:`Design/uiux_fsm`
 
 
@@ -14,4 +15,5 @@ Design
    :hidden:
 
    Design/solid
+   Design/pytohn_oop_object
    Design/uiux_fsm
