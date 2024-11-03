@@ -287,6 +287,160 @@ Python OOP - 封裝(Encapsulation)
 * 通常可以用在刪除陣列中的某個元素、dict的某個key-value，抑或是定義其他刪除行為，好比說定義不可刪除的判斷，以防意外刪除。
 * 主要可以使用在釋放記憶體、不需要再使用到的屬性。
 
+@dataclass
+-----------------------
+* 這是一個用於整理資料類別的裝飾器，可以減少撰寫樣板程式碼（boilerplate code）的需求，尤其是用以定義資料類別時。
+* 當專案中有許多資料類別時，這個裝飾器可以幫助我們快速定義資料類別，並且提供了一些方便的方法，例如 __init__、__repr__、__eq__ 等。
+* dataclass 的定義增加了可讀性，並且減少了錯誤的可能性。
+* Python 3.7 以上版本才有此功能，並且是內建的模組，相對的有另一個模組 pydantic，也是用來定義資料類別的，dataclass不會檢查資料的合法性，而pydantic則會。
+
+在沒有使用 @dataclass 的情況下，我們需要自己定義 __init__、__repr__ 等方法：
+
+.. code-block:: python
+
+    class Student:
+        def __init__(self, name: str, age: int, grade: int):
+            self.name = name
+            self.age = age
+            self.grade = grade
+
+        def __repr__(self):
+            return f"Student(name={self.name}, age={self.age}, grade={self.grade})"
+
+    # 使用範例
+    student = Student(name="John", age=18, grade=1)
+    print(student)  # Student(name=John, age=18, grade=1)
+
+輸出結果
+~~~~~~~~~
+
+.. code-block:: bash
+
+    Student(name=John, age=18, grade=1)
+
+而透過 @dataclass 裝飾器，我們可以簡化這個過程：
+
+.. code-block:: python
+
+    from dataclasses import dataclass
+
+    @dataclass
+    class Student:
+        name: str
+        age: int
+        grade: int
+
+    student = Student(name="John", age=18, grade=1)
+    print(student)  # Student(name='John', age=18, grade=1)
+
+輸出結果
+~~~~~~~~~
+
+.. code-block:: bash
+
+    Student(name='John', age=18, grade=1)
+
+透過定義 @dataclass 可以使代碼更加簡潔，若專案參數較多，不但可以減少撰寫各項資料類別的時間，也可以提高程式碼的可讀性，未來修改上也更加方便。
+
+@dataclass 用法：__post_init__()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* __post_init__() 僅限於定義 @dataclass 裝飾器時使用，當物件初始化完成後，會自動執行這個方法。
+* @dataclass 執行時會自動 __init__() ，並且會在執行完畢後，執行 __post_init__() 方法。
+* 其用途用於初始化後，新增或檢查屬性。
+
+以上面的 Student 類別為例，在沒有定義 @detaclass時：
+
+.. code-block:: python
+
+    class Student:
+        def __init__(self, name: str, age: int, grade: int):
+            self.name = name
+            self.age = age
+            self.grade = grade
+            self.__check_age()
+
+        def __repr__(self):
+            return f"Student(name={self.name}, age={self.age}, grade={self.grade})"
+
+        def __check_age(self):
+            if self.age < 0:
+                raise ValueError("Age cannot have negative numbers")
+
+    student = Student(name="John", age=18, grade=1)
+    print(student)
+
+    student = Student(name="John", age=-1, grade=1)
+
+輸出結果
+~~~~~~~~~
+在沒有定義 @dataclass 時，當 age < 0 時，需要自行新增判斷式，並且在初始化時執行。
+
+.. code-block:: bash
+
+    Student(name=John, age=18, grade=1)
+    Traceback (most recent call last):
+    File "/Users/xiu/Desktop/test.py", line 19, in <module>
+        student = Student(name="John", age=-1, grade=1)  # ValueError: Age must be a positive integer
+    File "/Users/xiu/Desktop/test.py", line 6, in __init__
+        self.__check_age()
+    File "/Users/xiu/Desktop/test.py", line 13, in __check_age
+        raise ValueError("Age cannot have negative numbers")
+    ValueError: Age cannot have negative numbers
+
+在定義 @dataclass 時，可以直接透過 __post_init__() 方法來檢查屬性：
+
+.. code-block:: python
+
+    from dataclasses import dataclass
+
+    @dataclass
+    class Student:
+        name: str
+        age: int
+        grade: int
+
+        def __post_init__(self):
+            if self.age < 0:
+                raise ValueError("Age cannot have negative numbers")
+
+    student = Student(name="John", age=18, grade=1)
+    print(student)
+
+    student = Student(name="John", age=-1, grade=1)
+
+輸出結果
+~~~~~~~~~
+
+.. code-block:: bash
+
+    Student(name='John', age=18, grade=1)
+    Traceback (most recent call last):
+    File "/Users/xiu/Desktop/test.py", line 18, in <module>
+        student = Student(name="John", age=-1, grade=1)  # ValueError: Age must be a positive integer
+    File "<string>", line 6, in __init__
+    File "/Users/xiu/Desktop/test.py", line 12, in __post_init__
+        raise ValueError("Age cannot have negative numbers")
+    ValueError: Age cannot have negative numbers
+
+當然了，除了檢查屬性外，也可以用以定義新的屬性，或是進行其他的操作。
+
+.. code-block:: python
+
+    from dataclasses import dataclass
+
+    @dataclass
+    class Student:
+        name: str
+        age: int
+        grade: int
+
+        def __post_init__(self):
+            self.student_id = f"{self.name}_{self.age}"
+
+    student = Student(name="John", age=18, grade=1)
+    print(student.student_id)
+
 參考資料
 -----------------------
 * ChatGPT4o
@@ -294,3 +448,4 @@ Python OOP - 封裝(Encapsulation)
 * `[Python]-關於物件導向程式設計 (Object-Oriented Programming, OOP) <https://medium.com/@leo122196/python-%E9%97%9C%E6%96%BC%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88-object-oriented-programming-oop-b3ce7ae019f3#0176>`_
 * `[Python]-封裝 (Encapsulation): 物件導向的三大特色之一 <https://medium.com/@leo122196/python-%E5%B0%81%E8%A3%9D-encapsulation-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E8%89%B2%E4%B9%8B%E4%B8%80-9196f8aa4ef6>`_
 * `[Python Property 教學：保護變數資料的 Getter 與 Setter <https://haosquare.com/python-property/#Property_%E7%9A%84%E5%A5%BD%E8%99%95>`_
+* `Python dataclass 教學：輕鬆定義資料類別 <https://haosquare.com/python-dataclass/>`_
