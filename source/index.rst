@@ -21,6 +21,11 @@ Project conventions and Notes
 
    * :doc:`pages/index_proxmox`
 
+**Kubernetes**
+
+   * :doc:`pages/index_kubernetes`
+
+
 .. toctree::
    :caption: Project Conventions
    :maxdepth: 2
@@ -41,3 +46,10 @@ Project conventions and Notes
    :hidden:
 
    pages/index_proxmox
+
+.. toctree::
+   :caption: Kubernetes Notes
+   :maxdepth: 2
+   :hidden:
+
+   pages/index_kubernetes
