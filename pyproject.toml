@@ -1,0 +1,10 @@
+[project]
+name = "projectconventions"
+version = "0.0.1"
+description = "The project development guidelines, tool tutorials, and notes."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "sphinx>=5,<8",
+    "sphinx-rtd-theme==2.0.0",
+]
